@@ -6,9 +6,12 @@ contract ERC20Token {
 
     mapping ( address => mapping ( address => unit256 )) public allowances;
     mapping ( address => unit256) public _balances;
+
+    event Transfer(address indexed _from, address indexed _to, uint256 _value);
+
     
     unit256 public totalSupply;
-    string public name;
+    string public name; // .name()
     string public symbol;
     unit8 public decimals;
     
@@ -48,8 +51,10 @@ contract ERC20Token {
             require (balances[_from] >= _value && allowance >= _value);
         
             // update balances
-            balances[_from] -= _value;
+            balances[msg.sender] -= _value;
             balances[_to] += _value;
+
+            emit Transfer(msg.sender, _to, _value);
         
             // check that allowance < MAX_UINT256
             if(allowance < MAX_UINT256)  {
@@ -57,7 +62,7 @@ contract ERC20Token {
                 // deduct from allowance
                 allowances[_from][msg.sender] -= _value;
             }
-                
+            emit Transfer(_from, _to, _value);    
             return true;
         }
     
