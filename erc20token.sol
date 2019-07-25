@@ -1,21 +1,24 @@
 pragam solidity ^0.5.1;
 
-contract ERC20Token {
-    
-    unit256 constant private MAX_UINT256 = 2**256 -1;
+import "./ERC20Interface.sol";
 
-    mapping ( address => mapping ( address => unit256 )) public allowances;
-    mapping ( address => unit256) public _balances;
+contract ERC20Token is ERC20Interface {
+    
+    uint256 constant private MAX_UINT256 = 2**256 -1;
+
+    mapping ( address => mapping ( address => uint256 )) public allowances;
+    mapping ( address => uint256) public _balances;
 
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
+    event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 
     
-    unit256 public totalSupply;
+    uint256 public totalSupply;
     string public name; // .name()
     string public symbol;
     unit8 public decimals;
     
-    constructor(unit256 _totalSupply, string memory _name, string memory _symbol, unit8 _decimals)  public {
+    constructor(uint256 _totalSupply, string memory _name, string memory _symbol, unit8 _decimals)  public {
         _balances[msg.sender] = _totalSupply;
         totalSupply = _totalSupply;
         name = _name;
@@ -24,12 +27,12 @@ contract ERC20Token {
     }
 
 
-    function balanceOf(address _owner) public view returns(unit256 balance) {
+    function balanceOf(address _owner) public view returns(uint256 balance) {
         return balance[_owner];
     }
 
 
-    function transfer(address _to, unit256 _value) public returns(bool success) {
+    function transfer(address _to, uint256 _value) public returns(bool success) {
         // prevents overspending
 
         require (balances[msg.sender] >= _value);
@@ -45,7 +48,7 @@ contract ERC20Token {
     function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
      
             // get allowance
-            unit256 allowance = allowances[_from][msg.sender];
+            uint256 allowance = allowances[_from][msg.sender];
             
             // require that value be < balances and allowance
             require (balances[_from] >= _value && allowance >= _value);
