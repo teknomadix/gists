@@ -1,13 +1,12 @@
-pragam solidity ^0.5.1;
+pragma solidity ^0.5.1;
 
-import "./ERC20Interface.sol";
 
-contract ERC20Token is ERC20Interface {
+contract ERC20Token {
     
     uint256 constant private MAX_UINT256 = 2**256 -1;
 
     mapping ( address => mapping ( address => uint256 )) public allowances;
-    mapping ( address => uint256) public _balances;
+    mapping ( address => uint256) public balances;
 
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
     event Approval(address indexed _owner, address indexed _spender, uint256 _value);
@@ -16,10 +15,10 @@ contract ERC20Token is ERC20Interface {
     uint256 public totalSupply;
     string public name; // .name()
     string public symbol;
-    unit8 public decimals;
+    uint8 public decimals;
     
-    constructor(uint256 _totalSupply, string memory _name, string memory _symbol, unit8 _decimals)  public {
-        _balances[msg.sender] = _totalSupply;
+    constructor(uint256 _totalSupply, string memory _name, string memory _symbol, uint8 _decimals)  public {
+        balances[msg.sender] = _totalSupply;
         totalSupply = _totalSupply;
         name = _name;
         symbol = _symbol;
@@ -28,7 +27,7 @@ contract ERC20Token is ERC20Interface {
 
 
     function balanceOf(address _owner) public view returns(uint256 balance) {
-        return balance[_owner];
+        return balances[_owner];
     }
 
 
@@ -71,6 +70,7 @@ contract ERC20Token is ERC20Interface {
     
     function approve(address _spender, uint256 _value) public returns (bool success){
         allowances[msg.sender][_spender] = _value;
+        emit Approval(msg.sender, _spender, _value);
         return true;
 
     }
