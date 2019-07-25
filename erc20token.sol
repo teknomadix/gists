@@ -2,6 +2,8 @@ pragam solidity ^0.5.1;
 
 contract ERC20Token {
     
+    unit256 constant private MAX_UINT256 = 2**256 -1;
+
     mapping ( address => mapping ( address => unit256 )) public allowances;
     mapping ( address => unit256) public _balances;
     
@@ -10,8 +12,9 @@ contract ERC20Token {
     string public symbol;
     unit8 public decimals;
     
-    constructor(unit256 _totalSupply, string memory _name, string memory _symbol, unit8 _decimals) {
+    constructor(unit256 _totalSupply, string memory _name, string memory _symbol, unit8 _decimals)  public {
         _balances[msg.sender] = _totalSupply;
+        totalSupply = _totalSupply;
         name = _name;
         symbol = _symbol;
         decimals = _decimals;
