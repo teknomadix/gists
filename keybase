@@ -1,0 +1,67 @@
+### Keybase proof
+
+I hereby claim:
+
+  * I am teknomadix on github.
+  * I am johannessnilsson (https://keybase.io/johannessnilsson) on keybase.
+  * I have a public key ASARqWAO0SUBUf2EauWWp71NR1ID4RMjps4cYIFdK0D2tgo
+
+To claim this, I am signing this object:
+
+```json
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01200a2de96864e376b947643599c8abbc1a8731d4951f271a78baaf76fdd668b68b0a",
+      "host": "keybase.io",
+      "kid": "012011a9600ed1250151fd846ae596a7bd4d475203e11323a6ce1c60815d2b40f6b60a",
+      "uid": "6d07541fb846130f64b552c370afe719",
+      "username": "johannessnilsson"
+    },
+    "merkle_root": {
+      "ctime": 1565172563,
+      "hash": "2be28355439cb45c2d568f1a423b58f146c0ced189700ebc2b28672e279e8e47e2bffad5b1826b48ecc87dc45442b7026878550020f79144129925986e6e1681",
+      "hash_meta": "17a0235af075f40a86847cb3951b8b1bfc00ba3105ffe6304a9e46635907d137",
+      "seqno": 5960953
+    },
+    "service": {
+      "entropy": "E2wOmX+ulhTlZilQBCvA5Qzr",
+      "name": "github",
+      "username": "teknomadix"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.2.0"
+  },
+  "ctime": 1565172579,
+  "expire_in": 504576000,
+  "prev": "6d8e1e8cdef35d3e04844c77bd991d37febfb0fcc81cb6dfaa3da9cabec004f4",
+  "seqno": 188,
+  "tag": "signature"
+}
+```
+
+with the key [ASARqWAO0SUBUf2EauWWp71NR1ID4RMjps4cYIFdK0D2tgo](https://keybase.io/johannessnilsson), yielding the signature:
+
+```
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgEalgDtElAVH9hGrllqe9TUdSA+ETI6bOHGCBXStA9rYKp3BheWxvYWTES5cCzLzEIG2OHoze810+BIRMd72ZHTf+v7D8yBy236o9qcq+wAT0xCClt+8DGi1lvVUtzOHxDWceuxs57Rt+pC1yiDifos+1JwIBwqNzaWfEQEIoz3WOdQRjzcsOTZhTvY5P84tODusW+UFqopKdY3VpMRGo4dCHqFG+ShxPYgJJO6yloItfF7ZP8dAkhcUEZAqoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCBBVurQ3AmqzVadtyLKXTqEuAkmLcGVyeMnGAo5fhXIqaN0YWfNAgKndmVyc2lvbgE=
+
+```
+
+And finally, I am proving ownership of the github account by posting this as a gist.
+
+### My publicly-auditable identity:
+
+https://keybase.io/johannessnilsson
+
+### From the command line:
+
+Consider the [keybase command line program](https://keybase.io/download).
+
+```bash
+# look me up
+keybase id johannessnilsson
+```
